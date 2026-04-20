@@ -1,4 +1,4 @@
-# FeedFrame Chrome Extension v1 Debug Task
+# FeedFrame Chrome Extension Debug Task
 
 This folder contains a small v1-style test package for evaluating Chrome extension web development work. The task is focused on the browser extension and lightweight backend data collection behavior. It does not include model-side files.
 
