@@ -21,14 +21,14 @@ Useful starting points:
 
 ## Issue 2: Duplicate Or Misleading Interaction Records
 
-The extension records post interactions and sends them to the backend. In the v1 behavior, each click can create another database record, even when the user is canceling a previous interaction. For example, a user may like a post and then click again to unlike it, but the data pipeline can still accumulate multiple rows in a way that inflates or misrepresents engagement.
+The extension records post interactions and sends them to the backend. In the current version, each click can create another database record, even when the user is canceling a previous interaction. For example, a user may like a post and then click again to unlike it, but the data pipeline can still accumulate multiple rows in a way that inflates or misrepresents engagement.
 
 Expected behavior:
 
 - Repeated clicking should not create misleading duplicate engagement records.
 - Like then unlike should not be counted as a lasting like.
-- The backend should be protected against duplicate submissions where reasonable.
-- The data model should make it clear whether records represent raw events, latest state, or both.
+- The data model should make it clear whether records represent raw events(like then unlike->2 rows in total), latest state(unlike at last->0 row in total), or both.  
+
 
 Useful starting points:
 
@@ -45,4 +45,3 @@ Please return:
 - Code changes if you choose to implement them.
 - A brief note on assumptions and tradeoffs.
 
-Please do not work on model-side code.

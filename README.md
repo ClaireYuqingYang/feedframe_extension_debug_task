@@ -6,6 +6,7 @@ This folder contains a small v1-style test package for evaluating Chrome extensi
 
 - `extension/`: Chrome extension files to load with Chrome's "Load unpacked" flow.
 - `backend/`: Local Express backend used by the extension for interaction logging.
+- `evidence/`: Put screenshots or videos here if you want to show the original bug behavior.
 - `test-data/`: Optional sample payloads or exported interaction records.
 - `ISSUE_BRIEF.md`: The two debugging tasks and expected deliverables.
 
