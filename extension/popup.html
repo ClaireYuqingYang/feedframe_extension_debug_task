@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 320px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+    }
+    
+    h2 {
+      margin: 0 0 15px 0;
+      font-size: 18px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .status-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    
+    .status-connected {
+      background: #28a745;
+      box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+    }
+    
+    .status-disconnected {
+      background: #dc3545;
+    }
+    
+    .status-pending {
+      background: #ffc107;
+    }
+    
+    .section {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #495057;
+      margin-bottom: 10px;
+    }
+    
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    
+    .stat-row:last-child {
+      margin-bottom: 0;
+    }
+    
+    .stat-label {
+      color: #6c757d;
+    }
+    
+    .stat-value {
+      font-weight: 600;
+      color: #212529;
+    }
+    
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 8px;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-secondary {
+      background: #6c757d;
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background: #5a6268;
+    }
+    
+    .btn-success {
+      background: #28a745;
+      color: white;
+    }
+    
+    .btn-danger {
+      background: #dc3545;
+      color: white;
+    }
+    
+    .message {
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      margin-top: 8px;
+      display: none;
+    }
+    
+    .message.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .message.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 11px;
+      color: #6c757d;
+    }
+    
+    .backend-url {
+      font-size: 11px;
+      color: #6c757d;
+      word-break: break-all;
+      margin-top: 5px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h2>
+    <span class="status-indicator" id="statusIndicator"></span>
+    🛡️ FeedFrame
+  </h2>
+  
+  <!-- Connection Status -->
+  <div class="section">
+    <div class="section-title">📡 Backend Connection</div>
+    <div class="stat-row">
+      <span class="stat-label">Status:</span>
+      <span class="stat-value" id="connectionStatus">Checking...</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Queue:</span>
+      <span class="stat-value" id="queueSize">0 pending</span>
+    </div>
+    <div class="backend-url" id="backendUrl">-</div>
+  </div>
+  
+  <!-- Quick Stats -->
+  <div class="section">
+    <div class="section-title">📊 Session Stats</div>
+    <div class="stat-row">
+      <span class="stat-label">News Mode:</span>
+      <span class="stat-value" id="newsModeTime">0s</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Entertainment:</span>
+      <span class="stat-value" id="entertainmentTime">0s</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Interactions:</span>
+      <span class="stat-value" id="interactionCount">0</span>
+    </div>
+  </div>
+  
+  <!-- Actions -->
+  <button id="syncBtn" class="btn-primary">🔄 Sync Now</button>
+  <button id="testBtn" class="btn-secondary">🧪 Test Backend</button>
+  <button id="viewStatsBtn" class="btn-secondary">📈 View Full Stats</button>
+  <button id="clearLocalBtn" class="btn-danger">🗑️ Clear Local Backup</button>
+  
+  <div id="message" class="message"></div>
+  
+  <div class="footer">
+    v1.0.0 | MongoDB Backend
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

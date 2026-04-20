@@ -1,0 +1,20 @@
+[
+  {
+    "timestamp": "2026-01-15T12:00:00.000Z",
+    "session_id": "session_example",
+    "action": "post_interaction",
+    "post_id": "post_example_123",
+    "interaction_type": "like",
+    "previous_state": false,
+    "new_state": true
+  },
+  {
+    "timestamp": "2026-01-15T12:00:05.000Z",
+    "session_id": "session_example",
+    "action": "post_interaction",
+    "post_id": "post_example_123",
+    "interaction_type": "unlike",
+    "previous_state": true,
+    "new_state": false
+  }
+]

@@ -1,0 +1,434 @@
+/* ============================================
+   FeedFrame Styles - Apple Style
+   ============================================ */
+
+/* Main Banner Container */
+#feedframe-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  box-shadow: 0 2px 12px rgba(102, 126, 234, 0.25);
+}
+
+.ff-toolbar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: 12px;
+  border-radius: 16px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ff-toolbar-container:hover {
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.06),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+/* Tool Button Container - Apple Card Style */
+.ff-tool-btn {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.ff-tool-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+
+.ff-tool-btn:active {
+  transform: scale(0.98);
+  transition: all 0.1s;
+}
+
+/* Active state - Apple Blue Gradient */
+.ff-tool-btn.active {
+  background: linear-gradient(180deg, #007AFF 0%, #0051D5 100%);
+  box-shadow: 
+    0 4px 16px rgba(0, 122, 255, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.ff-tool-btn.active .ff-btn-icon {
+  filter: brightness(0) invert(1);
+}
+
+.ff-tool-btn.active .ff-btn-label {
+  color: white;
+  font-weight: 600;
+}
+
+/* Button Icon */
+.ff-btn-icon {
+  font-size: 28px;
+  line-height: 1;
+  transition: all 0.2s;
+}
+
+/* Button Label */
+.ff-btn-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #333;
+  letter-spacing: -0.2px;
+  transition: all 0.2s;
+}
+
+.ff-tool-btn:hover .ff-btn-label {
+  color: #000;
+}
+
+/* Info Button - Apple Style Circle */
+.ff-info-btn {
+  width: 80px;
+  height: 40px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #007AFF;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  margin-top: 4px;
+}
+
+.ff-info-btn:hover {
+  background: #007AFF;
+  color: white;
+  box-shadow: 
+    0 4px 16px rgba(0, 122, 255, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.ff-info-btn:active {
+  transform: scale(0.98);
+}
+
+/* Info Popup - Apple Card Style */
+.ff-info-popup {
+  position: absolute;
+  top: 0;
+  right: 110px;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 16px;
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.06),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+  animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Info Header - Apple Gradient */
+.ff-info-header {
+  background: linear-gradient(180deg, #007AFF 0%, #0051D5 100%);
+  color: white;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ff-info-title {
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.4px;
+}
+
+.ff-info-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+  font-weight: 300;
+}
+
+.ff-info-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.ff-info-close:active {
+  transform: scale(0.95);
+}
+
+/* Info Content - Apple Spacing */
+.ff-info-content {
+  padding: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Custom Scrollbar - Apple Style */
+.ff-info-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ff-info-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.ff-info-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.ff-info-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.ff-info-section {
+  margin-bottom: 16px;
+}
+
+.ff-info-section:last-child {
+  margin-bottom: 0;
+}
+
+.ff-info-section strong {
+  display: block;
+  color: #1d1d1f;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.ff-info-section p {
+  color: #6e6e73;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+  letter-spacing: -0.1px;
+}
+
+.ff-info-section span {
+  color: #007AFF;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+#ff-current-mode {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+#ff-filtered-count {
+  font-size: 32px;
+  font-weight: 700;
+  color: #FF3B30;
+  letter-spacing: -1px;
+}
+
+.ff-info-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  margin: 20px 0;
+}
+
+/* Tooltips - Apple Style */
+.ff-tool-btn[data-tooltip],
+.ff-info-btn[data-tooltip] {
+  position: relative;
+}
+
+.ff-tool-btn[data-tooltip]::after,
+.ff-info-btn[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translate(-100%, -50%);
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(20px);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000001;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  letter-spacing: -0.2px;
+}
+
+.ff-tool-btn[data-tooltip]::before,
+.ff-info-btn[data-tooltip]::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid rgba(30, 30, 30, 0.95);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000001;
+}
+
+.ff-tool-btn:hover[data-tooltip]::after,
+.ff-tool-btn:hover[data-tooltip]::before,
+.ff-info-btn:hover[data-tooltip]::after,
+.ff-info-btn:hover[data-tooltip]::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ff-info-btn[data-tooltip]::after {
+  white-space: normal;
+  max-width: 220px;
+  text-align: left;
+}
+
+/* Post Badge - Apple Style */
+.ff-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: help;
+  pointer-events: auto;
+  letter-spacing: -0.2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #feedframe-toolbar {
+    top: 70px;
+    right: 16px;
+  }
+  
+  .ff-toolbar-container {
+    padding: 10px;
+  }
+  
+  .ff-tool-btn {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .ff-info-btn {
+    width: 70px;
+    height: 36px;
+  }
+  
+  .ff-info-popup {
+    width: calc(100vw - 120px);
+    right: 90px;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .ff-toolbar-container {
+    background: rgba(30, 30, 30, 0.8);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .ff-tool-btn {
+    background: rgba(50, 50, 50, 0.9);
+  }
+  
+  .ff-tool-btn:hover {
+    background: rgba(60, 60, 60, 1);
+  }
+  
+  .ff-btn-label {
+    color: #e5e5e5;
+  }
+  
+  .ff-info-btn {
+    background: rgba(50, 50, 50, 0.9);
+  }
+  
+  .ff-info-popup {
+    background: rgba(30, 30, 30, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .ff-info-section strong {
+    color: #f5f5f7;
+  }
+  
+  .ff-info-section p {
+    color: #a1a1a6;
+  }
+}

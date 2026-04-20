@@ -1,0 +1,408 @@
+/* ============================================
+   FeedFrame - Purple Banner Toolbar
+   ============================================ */
+
+/* Main Banner Container */
+#feedframe-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  box-shadow: 0 2px 12px rgba(102, 126, 234, 0.25);
+  transition: left 0.05s ease; 
+}
+
+/* Banner Container */
+.ff-banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  gap: 16px;
+  min-height: 48px;
+}
+
+/* Left Section */
+.ff-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.ff-banner-logo {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.ff-banner-divider {
+  opacity: 0.5;
+  font-weight: 300;
+}
+
+.ff-current-mode {
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Center Section - Mode Buttons */
+.ff-banner-center {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.ff-mode-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+}
+
+.ff-mode-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ff-mode-btn.active {
+  background: white;
+  color: #667eea;
+  border-color: white;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+}
+
+.ff-mode-btn.active:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+.ff-btn-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.ff-btn-text {
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* Right Section */
+.ff-banner-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.ff-filtered-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.ff-badge-icon {
+  font-size: 14px;
+}
+
+.ff-info-icon-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ff-info-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+/* Info Popup */
+.ff-info-popup {
+  position: fixed;
+  top: 60px;
+  right: 24px;
+  width: 340px;
+  max-width: calc(100vw - 48px);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  z-index: 1000000;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ff-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px 12px 0 0;
+}
+
+.ff-info-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.ff-info-close {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ff-info-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.ff-info-content {
+  padding: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.ff-info-section {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.ff-info-section:last-child {
+  margin-bottom: 0;
+}
+
+.ff-info-section strong {
+  display: block;
+  color: #667eea;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.ff-info-section p {
+  margin: 0;
+  color: #495057;
+  font-size: 13px;
+}
+
+.ff-info-section span {
+  color: #212529;
+  font-weight: 600;
+}
+
+.ff-info-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #dee2e6, transparent);
+  margin: 16px 0;
+}
+
+/* Custom Scrollbar */
+.ff-info-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ff-info-content::-webkit-scrollbar-track {
+  background: #f1f3f5;
+  border-radius: 3px;
+}
+
+.ff-info-content::-webkit-scrollbar-thumb {
+  background: #adb5bd;
+  border-radius: 3px;
+}
+
+.ff-info-content::-webkit-scrollbar-thumb:hover {
+  background: #868e96;
+}
+
+/* ============================================
+   Dimmed Post Effects
+   ============================================ */
+
+/* Dimmed Post Container */
+.ff-dimmed {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Dim Overlay */
+.ff-dim-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: inherit;
+}
+
+/* Dimmed Images */
+.ff-dimmed-image {
+  transition: filter 0.3s ease;
+}
+
+/* Click Hint */
+.ff-click-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none;
+  z-index: 11;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+  .ff-banner-container {
+    padding: 10px 16px;
+    gap: 12px;
+  }
+  
+  .ff-banner-left {
+    gap: 8px;
+  }
+  
+  .ff-banner-logo {
+    font-size: 14px;
+  }
+  
+  .ff-current-mode {
+    display: none;
+  }
+  
+  .ff-banner-divider {
+    display: none;
+  }
+  
+  .ff-mode-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+  
+  .ff-btn-text {
+    display: none;
+  }
+  
+  .ff-btn-icon {
+    font-size: 18px;
+  }
+  
+  .ff-filtered-count {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+  
+  .ff-info-popup {
+    width: calc(100vw - 48px);
+    right: 16px;
+  }
+}
+
+/* ============================================
+   Dark Theme Support (for info popup)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .ff-info-popup {
+    background: #1a1a1a;
+    border: 1px solid #333;
+  }
+  
+  .ff-info-content {
+    color: #e0e0e0;
+  }
+  
+  .ff-info-section p {
+    color: #b0b0b0;
+  }
+  
+  .ff-info-section span {
+    color: #ffffff;
+  }
+  
+  .ff-info-divider {
+    background: linear-gradient(to right, transparent, #333, transparent);
+  }
+  
+  .ff-info-content::-webkit-scrollbar-track {
+    background: #2a2a2a;
+  }
+  
+  .ff-info-content::-webkit-scrollbar-thumb {
+    background: #555;
+  }
+  
+  .ff-info-content::-webkit-scrollbar-thumb:hover {
+    background: #666;
+  }
+}
