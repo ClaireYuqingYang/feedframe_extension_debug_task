@@ -31,6 +31,5 @@ The extension currently points to `http://localhost:3000/api` in `extension/conf
 ## Notes For Participants
 
 - Focus on the Chrome extension and the interaction data flow.
-- Do not work on model training, notebooks, or ML inference.
 - Bluesky is a third-party SPA, so fixes should be robust to layout changes and DOM updates.
 - If you change the data model, briefly explain whether you are storing click events, latest user state, or both.
