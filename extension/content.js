@@ -1098,7 +1098,7 @@ function scanPosts() {
   let newTracking = 0;
   
   contentElements.forEach((contentElement) => {
-    const fullPost = contentElement.parentElement?.parentElement;
+    const fullPost = contentElement.closest('[data-testid^="feedItem-by-"]') || contentElement.parentElement?.parentElement;
     if (!fullPost) return;
     
     const postId = getPostId(fullPost);
